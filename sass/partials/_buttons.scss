@@ -27,3 +27,13 @@
   padding: 1rem;
   cursor: pointer;
 }
+
+.remove-btn {
+  margin-right: auto;
+  border: none;
+  background-color: transparent;
+  color: getColor(text-medium-col);
+  font-family: $font-secondary;
+  margin-left: 1rem;
+  cursor: pointer;
+}

@@ -1,4 +1,3 @@
-////modal
 const modal = document.querySelector(".modal");
 
 export default function payModal() {

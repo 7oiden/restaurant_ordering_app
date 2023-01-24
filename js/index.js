@@ -1,6 +1,9 @@
 import { menuArray } from "./data.js";
-import { checkLength, validateNumber } from "./validators.js";
-import validateForm from "./validateForm.js";
+import {
+  checkLengthMin,
+  checkLengthMax,
+  validateNumber,
+} from "./validators.js";
 import payModal from "./payModal.js";
 
 // console.log(menuArray);
@@ -11,12 +14,11 @@ const cvvNumInput = document.querySelector("#cvv-num");
 const modal = document.querySelector(".modal");
 const menuContainer = document.querySelector(".menu-container");
 const orderList = document.querySelector(".order__list");
-const orderBtn = document.querySelector("#order-btn");
-const payBtn = document.querySelector("#pay-btn");
 
 const orderForm = document.querySelector("#order-form");
 const orderContainer = document.querySelector(".order-container");
 const successMsg = document.querySelector(".success-msg");
+const errorMsg = document.querySelectorAll(".error-msg");
 
 payModal();
 
@@ -48,28 +50,21 @@ function renderMenu() {
 document.addEventListener("click", function (event) {
   if (event.target.dataset.add) {
     handleAddItem(event.target.dataset.add);
-
-    // console.log(event.target);
+  } else if (event.target.dataset.remove) {
+    handleRemoveItem(event.target.dataset.remove);
   }
 });
 
 let orderArray = [];
-
-// if (orderArray === []) {
-//   subTotal = 0;
-// }
 
 function handleAddItem(itemId) {
   const targetItemObj = menuArray.filter(function (item) {
     return item.id === parseInt(itemId);
   })[0];
 
-  // console.log(num);
-
   if (!orderArray.includes(targetItemObj)) {
     orderArray.push(targetItemObj);
   }
-  // console.log(orderArray);
 
   if (orderArray === []) {
     orderContainer.style.display = "none";
@@ -80,24 +75,45 @@ function handleAddItem(itemId) {
   renderOrder();
 }
 
-////form
+function handleRemoveItem(itemId) {
+  console.log(itemId);
+  
+  const targetItemObj = menuArray.filter(function (item) {
+    return item.id !== parseInt(itemId);
+  });
+
+
+  // if (orderArray !== []) {
+  //   orderContainer.style.display = "block";
+  // } else {
+  //   orderContainer.style.display = "none";
+  // }
+
+  console.log(orderArray);
+
+  renderOrder();
+}
+
+////pay form
 orderForm.addEventListener("submit", submitOrderForm);
 
 function submitOrderForm(event) {
   event.preventDefault();
-  validateForm();
+
   if (
-    checkLength(nameInput.value, 4) &&
-    checkLength(cardNumInput.value, 15) &&
+    checkLengthMin(nameInput.value, 2) &&
+    checkLengthMin(cardNumInput.value, 15) &&
+    checkLengthMax(cardNumInput.value, 17) &&
     validateNumber(cardNumInput.value) &&
-    checkLength(cvvNumInput.value, 2) &&
+    checkLengthMin(cvvNumInput.value, 2) &&
+    checkLengthMax(cvvNumInput.value, 4) &&
     validateNumber(cvvNumInput.value)
   ) {
     console.log("submitted");
     modal.style.display = "none";
 
     successMsg.style.display = "block";
-    // orderForm.reset();
+    orderForm.reset();
 
     setTimeout(() => {
       successMsg.style.display = "none";
@@ -107,9 +123,14 @@ function submitOrderForm(event) {
     renderOrder();
     document.getElementById("order-price").textContent = "";
     orderContainer.style.display = "none";
+  } else {
+    errorMsg.forEach((msg) => {
+      msg.style.display = "block";
+    });
   }
 }
 
+///render order
 function renderOrder() {
   let subTotal = 0;
   orderList.innerHTML = "";
@@ -119,6 +140,7 @@ function renderOrder() {
     orderList.innerHTML += `
     <li class="order__item">
       <div class="order__title">${item.name}</div> 
+      <button class="remove-btn" data-remove="${item.id}">Remove</button>
       <div class="order__price">$${item.price}</div>
     </li>
     `;

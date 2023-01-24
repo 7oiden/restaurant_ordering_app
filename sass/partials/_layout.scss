@@ -105,6 +105,7 @@ input {
   &__item {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
   }
 
   &__total {
@@ -116,7 +117,9 @@ input {
 }
 
 .error-msg {
+  font-family: $font-secondary;
   color: getColor(errorText);
   font-size: 0.875rem;
   display: none;
+  padding-top: 0.25rem;
 }
