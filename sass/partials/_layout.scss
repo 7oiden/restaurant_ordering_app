@@ -1,0 +1,120 @@
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.header {
+  background-image: url(.././images/hero-image.jpg);
+  background-size: cover;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding: 2.5rem 0;
+    color: getColor(text-light-col);
+  }
+}
+
+.menu {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: $font-secondary;
+}
+
+input {
+  width: 100%;
+  font-family: inherit;
+  padding: 1rem;
+  border: 1px solid getColor(border-col);
+  border-radius: 3px;
+}
+
+.success-msg {
+  background-color: getColor(success-bg-col);
+  color: getColor(success-text-col);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 3px;
+  display: none;
+}
+
+.modal {
+  width: 100%;
+  background-color: getColor(primary-bg);
+  padding: 2.5rem 1rem 1rem 1rem;
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  box-shadow: 0 0 96px black;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+.menu {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid getColor(border-col);
+  }
+
+  &__info {
+    margin-right: auto;
+  }
+
+  
+}
+
+.order-container {
+  padding: 2rem 0;
+  display: none;
+}
+
+.order {
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid black;
+    padding-top: 1rem;
+  }
+}
+
+.error-msg {
+  color: getColor(errorText);
+  font-size: 0.875rem;
+  display: none;
+}

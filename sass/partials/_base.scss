@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-primary;
+  font-size: 1rem;
+}
+
+img {
+  display: block;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+span {
+  display: block;
+}
+
+figure {
+  font-size: 3rem;
+  margin-right: 1rem;
+}

@@ -1,0 +1,29 @@
+.menu__btn {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid getColor(border-col);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.menu__btn-icon {
+  display: block;
+  font-size: 1rem;
+  color: getColor(icon-col);
+  margin: auto;
+  z-index: -1;
+}
+
+.btn {
+  width: 100%;
+  font-size: 1.125rem;
+  border: none;
+  background-color: getColor(btn-col);
+  color: getColor(text-light-col);
+  border-radius: 3px;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}

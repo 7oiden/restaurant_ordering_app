@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimmy's Diner</title>
+    <link rel="icon" href="./images/logo.png" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container wrapper">
+            <h1>Jimmy's Diner</h1>
+            <p class="header__sub-heading">The best burgers and pizzas in town.</p>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div class="menu-container">
+                <!-- dynamically created content -->
+            </div>
+            <div class="order-container">
+                <h3 class="order__heading">Your order</h3>
+                <ul class="order__list">
+                    <!-- dynamically created content -->
+                </ul>
+                <div class="order__total" id="order-total">
+                    <!-- dynamically created content -->
+                </div>
+                <button class="btn" id="order-btn">Complete order</button>
+            </div>
+            <div class="modal">
+                <h4 class="modal__heading">Enter card details</h4>
+                <form id="order-form">
+                    <div>
+                        <input type="text" placeholder="Enter your name" name="name" id="name">
+                        <span class="error-msg" id="name-error">
+                            *Name must be 5 characters
+                        </span>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Enter card number" name="card-num" id="card-num">
+                        <span class="error-msg" id="card-num-error">
+                            *Please enter a valid card number
+                        </span>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Enter CVV" name="cvv-num" id="cvv-num">
+                        <span class="error-msg" id="cvv-num-error">
+                            * Please enter a valid e-mail address
+                        </span>
+                    </div>
+                    <button type="submit" class="btn" id="pay-btn">Pay</button>
+                </form>
+            </div>
+            <div class="success-msg">Thanks! Your order is on its way!</div>
+        </div>
+    </main>
+    <script src="js/index.js" type="module"></script>
+</body>
+
+</html>

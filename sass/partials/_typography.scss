@@ -1,0 +1,36 @@
+h1 {
+  font-size: 2.5rem;
+}
+
+.header__sub-heading {
+    font-size: 1.25rem;
+}
+
+.modal__heading {
+  font-family: $font-secondary;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.menu__heading {
+  font-size: 1.75rem;
+}
+
+.menu__ingredients {
+  color: getColor(text-medium-col);
+  margin-bottom: 0.75rem;
+}
+
+.order__heading {
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.order__title {
+  font-size: 1.5rem;
+}
+
+.order__price {
+  font-size: 1.25rem;
+}
