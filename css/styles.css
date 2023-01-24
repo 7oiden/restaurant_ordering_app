@@ -45,6 +45,7 @@ figure {
 
 .wrapper {
   width: 90%;
+  max-width: 600px;
   margin: 0 auto;
   position: relative;
   padding-bottom: 3rem;
@@ -87,6 +88,7 @@ input {
   color: #065f46;
   font-size: 1.5rem;
   text-align: center;
+  margin-top: 2rem;
   padding: 2rem;
   border-radius: 3px;
   display: none;

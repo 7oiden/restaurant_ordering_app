@@ -3,7 +3,7 @@ import { checkLength, validateNumber } from "./validators.js";
 import validateForm from "./validateForm.js";
 import payModal from "./payModal.js";
 
-console.log(menuArray);
+// console.log(menuArray);
 
 const nameInput = document.querySelector("#name");
 const cardNumInput = document.querySelector("#card-num");
@@ -48,14 +48,16 @@ function renderMenu() {
 document.addEventListener("click", function (event) {
   if (event.target.dataset.add) {
     handleAddItem(event.target.dataset.add);
-    // event.stopPropagation();
-    // event.preventDefault();
-    console.log(event.target);
+
+    // console.log(event.target);
   }
 });
 
 let orderArray = [];
-let subTotal = 0;
+
+// if (orderArray === []) {
+//   subTotal = 0;
+// }
 
 function handleAddItem(itemId) {
   const targetItemObj = menuArray.filter(function (item) {
@@ -76,24 +78,6 @@ function handleAddItem(itemId) {
   }
 
   renderOrder();
-}
-
-function renderOrder() {
-  orderList.innerHTML = "";
-  orderArray.forEach((item) => {
-    subTotal += Number(item.price * 1);
-
-    orderList.innerHTML += `
-    <li class="order__item">
-      <div class="order__title">${item.name}</div> 
-      <div class="order__price">$${item.price}</div>
-    </li>
-    `;
-    document.getElementById("order-total").innerHTML = `
-    <div class="order__title">Total price:</div>
-    <div class="order__price">$${subTotal}</div>
-  `;
-  });
 }
 
 ////form
@@ -121,9 +105,29 @@ function submitOrderForm(event) {
 
     orderArray = [];
     renderOrder();
-    // orderList.innerHTML = "";
-    // subTotal = 0;
+    document.getElementById("order-price").textContent = "";
+    orderContainer.style.display = "none";
   }
+}
+
+function renderOrder() {
+  let subTotal = 0;
+  orderList.innerHTML = "";
+  orderArray.forEach((item) => {
+    subTotal += Number(item.price * 1);
+
+    orderList.innerHTML += `
+    <li class="order__item">
+      <div class="order__title">${item.name}</div> 
+      <div class="order__price">$${item.price}</div>
+    </li>
+    `;
+
+    document.getElementById("order-price").textContent = `
+    $${subTotal}
+  `;
+  });
+  console.log(orderArray);
 }
 
 renderMenu();
