@@ -10,6 +10,7 @@ _Screenshot of assignment design specs_
 - Render the menu oprions using JavaScript
 - Be able to add/meove items
 - Have a payment modal with compulsory form inputs
+- Offer a meal-discount
 
  ### Built With
 
