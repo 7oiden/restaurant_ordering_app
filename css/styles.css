@@ -45,7 +45,7 @@ figure {
 
 .wrapper {
   width: 90%;
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
   position: relative;
   padding-bottom: 3rem;
@@ -105,7 +105,7 @@ figure {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-top: 2px solid #757575;
+  border-top: 2px solid #d2d2d2;
   padding-top: 1rem;
 }
 
@@ -130,6 +130,9 @@ h1 {
 .menu__ingredients {
   color: #757575;
   margin-bottom: 0.75rem;
+}
+.menu__price {
+  font-size: 1.125rem;
 }
 
 .order__heading {

@@ -32,7 +32,7 @@ function createMenuHtml() {
         <div class="menu__info">
             <h4 class="menu__heading">${item.name}</h4>
             <p class="menu__ingredients">${item.ingredients}</p>
-            <p>$${item.price}</p>
+            <p class="menu__price">$${item.price}</p>
         </div>
         <div class="menu__btn" data-add="${item.id}">
         <i class="fa-solid fa-plus menu__btn-icon"></i>
@@ -125,7 +125,7 @@ function renderOrder() {
   let subTotal = 0;
   let discount = 0;
   let orderTotal = 0;
-  
+
   orderList.innerHTML = "";
 
   orderArray.forEach((item) => {
