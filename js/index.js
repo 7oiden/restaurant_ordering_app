@@ -77,8 +77,10 @@ function handleAddItem(itemId) {
   if (!orderArray.includes(targetItemObj)) {
     orderArray.push(targetItemObj);
   }
-  targetItemObj.quantity++;
 
+  if (targetItemObj.quantity < 10) {
+    targetItemObj.quantity++;
+  }
   renderOrder();
 }
 
@@ -150,7 +152,7 @@ function renderOrder() {
   orderArray.forEach((item) => {
     subTotal += Number(item.price * item.quantity);
 
-    if (orderArray.length > 1) {
+    if (subTotal > 29) {
       discount = 15;
     } else {
       discount = 0;
