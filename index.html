@@ -26,6 +26,7 @@
     </header>
     <main>
         <div class="wrapper">
+
             <div class="menu-container">
                 <!-- dynamically created content -->
             </div>
@@ -35,7 +36,10 @@
                     <!-- dynamically created content -->
                 </ul>
                 <div class="order__total" id="order-total">
-                    <div class="order__title">Total price:</div>
+                    <div>
+                        <div id="discount-msg"><!-- dynamically created content --></div>
+                        <div class="order__title">Total price:</div>
+                    </div>
                     <div class="order__price" id="order-price"><!-- dynamically created content --></div>
                 </div>
                 <button class="btn" id="order-btn">Complete order</button>
@@ -51,7 +55,8 @@
                         </span>
                     </div>
                     <div>
-                        <input type="text" placeholder="Enter card number" name="card-num" id="card-num" value="1111222233334444">
+                        <input type="text" placeholder="Enter card number" name="card-num" id="card-num"
+                            value="1111222233334444">
                         <span class="error-msg" id="card-num-error">
                             *Please enter a valid 16 digit card number
                         </span>
@@ -65,6 +70,7 @@
                     <button type="submit" class="btn" id="pay-btn">Pay</button>
                 </form>
             </div>
+            
             <div class="success-msg">Thanks! Your order is on its way!</div>
         </div>
     </main>

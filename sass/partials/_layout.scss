@@ -19,63 +19,22 @@
   }
 }
 
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
 .menu {
   &__container {
     display: flex;
     flex-direction: column;
   }
-}
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  font-family: $font-secondary;
-}
-
-input {
-  width: 100%;
-  font-family: inherit;
-  padding: 1rem;
-  border: 1px solid getColor(border-col);
-  border-radius: 3px;
-}
-
-.success-msg {
-  background-color: getColor(success-bg-col);
-  color: getColor(success-text-col);
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 2rem;
-  padding: 2rem;
-  border-radius: 3px;
-  display: none;
-}
-
-.modal {
-  width: 100%;
-  background-color: getColor(primary-bg);
-  padding: 2.5rem 1rem 1rem 1rem;
-  display: none;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, 50%);
-  box-shadow: 0 0 96px black;
-}
-
-.menu-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding-top: 2rem;
-}
-
-.menu {
   &__item {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     border-bottom: 1px solid getColor(border-col);
   }
 
@@ -102,15 +61,14 @@ input {
   &__item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-end;
   }
 
   &__total {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     border-top: 2px solid getColor(text-medium-col);
     padding-top: 1rem;
   }
 }
-
-

@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: $font-secondary;
+}
+
+input {
+  width: 100%;
+  font-family: inherit;
+  padding: 1rem;
+  border: 1px solid getColor(border-col);
+  border-radius: 3px;
+}
