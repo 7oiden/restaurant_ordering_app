@@ -120,6 +120,8 @@ function submitOrderForm(event) {
     modal.style.display = "none";
 
     successMsg.style.display = "block";
+    successMsg.textContent = `Thanks ${nameInput.value}! Your order is on its way!`;
+
     orderForm.reset();
 
     setTimeout(() => {
