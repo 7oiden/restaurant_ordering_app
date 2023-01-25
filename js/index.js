@@ -6,6 +6,10 @@ import {
 } from "./validators.js";
 import payModal from "./payModal.js";
 
+menuArray.forEach((item) => {
+  item.quantity = 0;
+});
+
 // console.log(menuArray);
 
 const nameInput = document.querySelector("#name");
@@ -34,7 +38,7 @@ function createMenuHtml() {
             <p class="menu__ingredients">${item.ingredients}</p>
             <p class="menu__price">$${item.price}</p>
         </div>
-        <div class="menu__btn" data-add="${item.id}">
+        <div class="menu__btn" data-add="${item.id}" data-num=0>
         <i class="fa-solid fa-plus menu__btn-icon"></i>
         </div>
     </div>
@@ -57,6 +61,9 @@ document.addEventListener("click", function (event) {
 
   if (orderArray.length === 0) {
     orderContainer.style.display = "none";
+    menuArray.forEach((item) => {
+      item.quantity = 0;
+    });
   } else {
     orderContainer.style.display = "block";
   }
@@ -70,18 +77,26 @@ function handleAddItem(itemId) {
   if (!orderArray.includes(targetItemObj)) {
     orderArray.push(targetItemObj);
   }
+  targetItemObj.quantity++;
 
   renderOrder();
 }
 
 function handleRemoveItem(itemId) {
-  const newArray = orderArray.filter(function (item) {
-    return item.id !== parseInt(itemId);
-  });
+  const targetItemObj = menuArray.filter(function (item) {
+    return item.id === parseInt(itemId);
+  })[0];
 
-  orderArray = newArray;
-
-  renderOrder();
+  if (targetItemObj.quantity > 1) {
+    targetItemObj.quantity--;
+  } else if (
+    orderArray.includes(targetItemObj) &&
+    targetItemObj.quantity === 1
+  ) {
+    orderArray.splice(orderArray.indexOf(targetItemObj), 1);
+  }
+  // console.log(orderArray);
+  renderOrder(orderArray);
 }
 
 ////pay form
@@ -109,6 +124,10 @@ function submitOrderForm(event) {
       successMsg.style.display = "none";
     }, 3000);
 
+    menuArray.forEach((item) => {
+      item.quantity = 0;
+    });
+
     orderArray = [];
     renderOrder();
     document.getElementById("order-price").textContent = "";
@@ -129,9 +148,9 @@ function renderOrder() {
   orderList.innerHTML = "";
 
   orderArray.forEach((item) => {
-    subTotal += Number(item.price * 1);
+    subTotal += Number(item.price * item.quantity);
 
-    if (subTotal >= 24) {
+    if (orderArray.length > 1) {
       discount = 15;
     } else {
       discount = 0;
@@ -141,7 +160,7 @@ function renderOrder() {
 
     orderList.innerHTML += `
     <li class="order__item">
-      <div class="order__title">${item.name}</div> 
+      <div class="order__title">${item.quantity}x ${item.name}</div> 
       <button class="remove-btn" data-remove="${item.id}">Remove</button>
       <div class="order__price">$${item.price}</div>
     </li>
