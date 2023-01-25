@@ -144,16 +144,8 @@ input {
 .order__total {
   display: flex;
   justify-content: space-between;
-  border-top: 2px solid black;
+  border-top: 2px solid #757575;
   padding-top: 1rem;
-}
-
-.error-msg {
-  font-family: "verdana", sans-serif;
-  color: #ac1b2a;
-  font-size: 0.875rem;
-  display: none;
-  padding-top: 0.25rem;
 }
 
 h1 {
@@ -174,7 +166,6 @@ h1 {
 .menu__heading {
   font-size: 1.75rem;
 }
-
 .menu__ingredients {
   color: #757575;
   margin-bottom: 0.75rem;
@@ -184,13 +175,19 @@ h1 {
   text-align: center;
   font-size: 1.75rem;
 }
-
 .order__title {
   font-size: 1.5rem;
 }
-
-.order__price {
+.order__ {
   font-size: 1.25rem;
+}
+
+.error-msg {
+  font-family: "verdana", sans-serif;
+  color: #ac1b2a;
+  font-size: 0.875rem;
+  display: none;
+  padding-top: 0.25rem;
 }
 
 .menu__btn {

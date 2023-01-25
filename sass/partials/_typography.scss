@@ -3,7 +3,7 @@ h1 {
 }
 
 .header__sub-heading {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .modal__heading {
@@ -13,24 +13,36 @@ h1 {
   margin-bottom: 2.5rem;
 }
 
-.menu__heading {
-  font-size: 1.75rem;
+.menu {
+  &__heading {
+    font-size: 1.75rem;
+  }
+
+  &__ingredients {
+    color: getColor(text-medium-col);
+    margin-bottom: 0.75rem;
+  }
 }
 
-.menu__ingredients {
-  color: getColor(text-medium-col);
-  margin-bottom: 0.75rem;
+.order {
+  &__heading {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+  }
+
+  &__ {
+    font-size: 1.25rem;
+  }
 }
 
-.order__heading {
-  text-align: center;
-  font-size: 1.75rem;
-}
-
-.order__title {
-  font-size: 1.5rem;
-}
-
-.order__price {
-  font-size: 1.25rem;
+.error-msg {
+  font-family: $font-secondary;
+  color: getColor(errorText);
+  font-size: 0.875rem;
+  display: none;
+  padding-top: 0.25rem;
 }

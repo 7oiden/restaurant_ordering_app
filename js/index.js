@@ -20,6 +20,8 @@ const orderContainer = document.querySelector(".order-container");
 const successMsg = document.querySelector(".success-msg");
 const errorMsg = document.querySelectorAll(".error-msg");
 
+let orderArray = [];
+
 payModal();
 
 function createMenuHtml() {
@@ -46,16 +48,21 @@ function renderMenu() {
   menuContainer.innerHTML = createMenuHtml();
 }
 
-///////////
+///////////click handlers
 document.addEventListener("click", function (event) {
   if (event.target.dataset.add) {
     handleAddItem(event.target.dataset.add);
   } else if (event.target.dataset.remove) {
     handleRemoveItem(event.target.dataset.remove);
   }
+
+  if (orderArray.length === 0) {
+    orderContainer.style.display = "none";
+  } else {
+    orderContainer.style.display = "block";
+  }
 });
 
-let orderArray = [];
 
 function handleAddItem(itemId) {
   const targetItemObj = menuArray.filter(function (item) {
@@ -66,30 +73,15 @@ function handleAddItem(itemId) {
     orderArray.push(targetItemObj);
   }
 
-  if (orderArray === []) {
-    orderContainer.style.display = "none";
-  } else {
-    orderContainer.style.display = "block";
-  }
-
   renderOrder();
 }
 
 function handleRemoveItem(itemId) {
-  console.log(itemId);
-  
-  const targetItemObj = menuArray.filter(function (item) {
+  const newArray = orderArray.filter(function (item) {
     return item.id !== parseInt(itemId);
   });
 
-
-  // if (orderArray !== []) {
-  //   orderContainer.style.display = "block";
-  // } else {
-  //   orderContainer.style.display = "none";
-  // }
-
-  console.log(orderArray);
+  orderArray = newArray;
 
   renderOrder();
 }
@@ -132,8 +124,10 @@ function submitOrderForm(event) {
 
 ///render order
 function renderOrder() {
+  
   let subTotal = 0;
   orderList.innerHTML = "";
+
   orderArray.forEach((item) => {
     subTotal += Number(item.price * 1);
 
@@ -153,3 +147,4 @@ function renderOrder() {
 }
 
 renderMenu();
+renderOrder();
